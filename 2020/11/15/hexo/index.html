@@ -473,13 +473,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="python">package main
-
-import &quot;fmt&quot;
-
-func main() &#123;
-    fmt.Println(&quot;Hello, World&quot;)
-&#125;</code></pre>
+                <h2 id="hexo环境搭建"><a href="#hexo环境搭建" class="headerlink" title="hexo环境搭建"></a>hexo环境搭建</h2><p>本次搭建操作系统为ubuntu 20.04，采用virtualbox安装。</p>
+<h3 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h3><pre><code>apt-get install git-core</code></pre>
+<h3 id="二、安装nodejs"><a href="#二、安装nodejs" class="headerlink" title="二、安装nodejs"></a>二、安装nodejs</h3><pre><code>curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+apt-get install -y nodejs</code></pre>
+<h3 id="三、安装hexo"><a href="#三、安装hexo" class="headerlink" title="三、安装hexo"></a>三、安装hexo</h3><pre><code>npm install -g hexo-cli
+npm install hexo-deployer-git --save</code></pre>
+<h3 id="四、同步ssh"><a href="#四、同步ssh" class="headerlink" title="四、同步ssh"></a>四、同步ssh</h3><pre><code>ssh-keygen -t rsa
+cat id_rsa.pub
+ssh -T git@github.com
+git config --global user.name &quot;longicron&quot;
+git config --global user.email &quot;838477672@qq.com&quot;</code></pre>
+<h3 id="五、编写文章"><a href="#五、编写文章" class="headerlink" title="五、编写文章"></a>五、编写文章</h3><pre><code>hexo new hexo
+hexo g -d</code></pre>
 
             </div>
             <hr/>
