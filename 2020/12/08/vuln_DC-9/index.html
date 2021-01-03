@@ -479,7 +479,7 @@
 <h2 id="二-信息搜集"><a href="#二-信息搜集" class="headerlink" title="二.信息搜集"></a>二.信息搜集</h2><h3 id="1-netdiscover扫描靶机IP"><a href="#1-netdiscover扫描靶机IP" class="headerlink" title="1.netdiscover扫描靶机IP"></a>1.netdiscover扫描靶机IP</h3><pre><code>netdiscover -r 192.168.8.0/24</code></pre>
 <p>可以根据虚拟机的mac地址来寻找对应的IP地址为192.168.8.13</p>
 <h3 id="2-nmap扫描端口"><a href="#2-nmap扫描端口" class="headerlink" title="2.nmap扫描端口"></a>2.nmap扫描端口</h3><pre><code>nmap -p- -Pn -sV -n 192.168.9.69</code></pre>
-<p><img src="1.png"></p>
+<p><img src="1.png" alt="1"></p>
 <h3 id="3-扫描web目录"><a href="#3-扫描web目录" class="headerlink" title="3.扫描web目录"></a>3.扫描web目录</h3><pre><code>dirb http://192.168.8.13</code></pre>
 <p>扫描后没有什么发现</p>
 <h2 id="三-漏洞发现"><a href="#三-漏洞发现" class="headerlink" title="三.漏洞发现"></a>三.漏洞发现</h2><h3 id="1-那就直接登录80端口上去看看吧"><a href="#1-那就直接登录80端口上去看看吧" class="headerlink" title="1.那就直接登录80端口上去看看吧"></a>1.那就直接登录80端口上去看看吧</h3><p><img src="2.png"><br><img src="3.png"><br>这边看了有搜索功能及登录功能，第一步想到sqlmap扫描是否有sql注入漏洞<br>搜索某个名字使用burp截包，保存为文件，使用sqlmap扫描<br><img src="4.png"><br><img src="5.png"><br><img src="6.png"><br>爆库，发现admin用户的密码，看上去像32为的md5密文，网上cmd5或者somd5解密一波，密码为transorbital1</p>
